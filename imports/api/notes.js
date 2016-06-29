@@ -28,6 +28,6 @@ Meteor.methods({
 
     'notes.updateContent'(noteId, newContent) {
         check(newContent, string);
-        Notes.update(noteId, { $set: { cotent: newContent } });
+        Notes.update(noteId, { $set: { content: newContent } });
     }
 });

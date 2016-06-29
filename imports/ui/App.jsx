@@ -28,10 +28,6 @@ export default class App extends Component {
                 <ul>
                     {this.renderTasks()}
                 </ul>
-                <form method="post">
-                    <div id="myeditablediv">Click here to edit!</div>
-                    <input type="submit" value="Submit" />
-                </form>
             </div>
         );
     }

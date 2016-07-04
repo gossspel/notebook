@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-import NoteTable from './NoteTable';
+import NoteBookSideBar from './NoteBookSideBar';
+import NoteBookContent from './NoteBookContent';
 
 export default class NoteBook extends Component {
     render() {
         return (
             <div className="note-book">
-                <NoteTable notes={this.props.notes} />
+                <NoteBookSideBar notes={this.props.notes} />
+                <NoteBookContent />
             </div>
         );
     }

@@ -1,34 +1,27 @@
-import React, { Component } from 'react';
-
-import Task from './Task.jsx';
+import React, { Component, PropTypes } from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
+import NoteBook from './NoteBook.jsx';
+// import { Notes } from '../api/notes.js';
 
 // App component - represents the whole app
-export default class App extends Component {
-    getTasks() {
-        return [
-            { _id: 1, text: 'This is task 1' },
-            { _id: 2, text: 'This is task 2' },
-            { _id: 3, text: 'This is task 3' }
-        ];
-    }
-
-    renderTasks() {
-        return this.getTasks().map((task) => (
-            <Task key={task._id} task={task} />
-        ));
-    }
-
+class App extends Component {
     render() {
         return (
-            <div className="container">
-                <header>
-                    <h1>Todo List</h1>
-                </header>
-
-                <ul>
-                    {this.renderTasks()}
-                </ul>
-            </div>
+            <NoteBook notes={this.props.notes} />
         );
     }
 }
+
+App.propTypes = {
+    notes: PropTypes.array.isRequired
+};
+
+export default createContainer(() => {
+    return {
+        notes: [
+            { _id: 1, title: 'Note 1 title', content: 'Note 1 content' },
+            { _id: 2, title: 'Note 2 title', content: 'Note 2 content' },
+            { _id: 3, title: 'Note 3 title', content: 'Note 3 content' }
+        ]
+    };
+}, App);

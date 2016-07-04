@@ -7,7 +7,7 @@ export default class NoteTable extends Component {
 
         this.props.notes.forEach(
             function(note) {
-                rows.push(<NoteRow note={note} key={note.title} />);
+                rows.push(<NoteRow note={note} key={note._id} />);
             }
         );
 

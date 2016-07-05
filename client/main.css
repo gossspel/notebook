@@ -66,6 +66,7 @@ html, body {
     height: 56px;
     background-size: 56px 56px;
     background-image: url("/images/sunnynote.png");
+    top: 20px;
 }
 
 .note-book-brand {
@@ -73,7 +74,7 @@ html, body {
     font-size: 28px;
     position: absolute;
     left: 80px;
-    top: 20px;
+    top: 30px;
     width: 150px;
 }
 

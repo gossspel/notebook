@@ -26,6 +26,7 @@ html, body {
 }
 
 .note-book-content {
+    position: relative;
     height: 100%;
 }
 
@@ -54,8 +55,35 @@ html, body {
     font-size: 14px;
 }
 
-.note-detail-title {
+.note-book-top-bar {
+    padding: 10px;
+    height: 75px;
+}
+
+.note-book-logo {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    background-size: 56px 56px;
+    background-image: url("/images/sunnynote.png");
+}
+
+.note-book-brand {
     color: #21ce99;
+    font-size: 28px;
+    position: absolute;
+    left: 80px;
+    top: 20px;
+    width: 150px;
+}
+
+.note-book-toolbar {
+    padding: 0 0 0 230px;
+    height: 100%;
+}
+
+.note-detail-title {
+    color: #2dbe60;
     font-size: 28px;
     padding: 20px;
 }

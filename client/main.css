@@ -6,34 +6,38 @@ html, body {
 
 #render-target {
     height: 100%;
+    overflow-x: hidden;
     font-family: "Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
 .note-book {
-    position: relative;
-    padding: 0 0 0 355px;
-    height: 100%;
+    width: 100%;
+    min-width: 1170px;
 }
 
 .note-book-side-bar {
-    height: 100%;
-    overflow: hidden;
-    position:absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    position: fixed;
     width: 350px;
+    height:100vh;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow-y: scroll;
 }
 
 .note-book-content {
-    position: relative;
-    height: 100%;
+    min-width: 770px;
+    margin: 0 0 0 350px;
+    padding: 0 25px 0 25px;
+    overflow-y: scroll;
+    left: 0;
+    top: 0;
+    height:100vh;
+    overflow-x: hidden;
 }
 
 .note-table {
     border:1px solid #ececec;
-    height: 100%;
-    overflow: scroll;
 }
 
 .note-row {
@@ -56,31 +60,33 @@ html, body {
 }
 
 .note-book-top-bar {
-    padding: 10px;
+    border-color: #ececec;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    padding: 10px 0 10px 0;
     height: 75px;
 }
 
 .note-book-logo {
-    position: absolute;
     width: 56px;
     height: 56px;
     background-size: 56px 56px;
     background-image: url("/images/sunnynote.png");
-    top: 20px;
+    margin: 10px 0 0 0;
+    float: left;
 }
 
 .note-book-brand {
     color: #21ce99;
     font-size: 28px;
-    position: absolute;
-    left: 80px;
-    top: 30px;
     width: 150px;
+    float: left;
+    margin: 20px 0 0 10px;
 }
 
 .note-book-toolbar {
-    padding: 0 0 0 230px;
     height: 100%;
+    float: right;
 }
 
 .note-detail-title {
@@ -90,8 +96,13 @@ html, body {
 }
 
 .note-detail-content {
+    height: 100%;
     color: #383838;
     font-size: 16px;
     padding: 20px;
+}
+
+.note-detail-tinymce {
+
 }
 

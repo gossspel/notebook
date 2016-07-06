@@ -4,6 +4,12 @@ html, body {
     margin: 0 0 0 0;
 }
 
+p {
+    margin:0;
+    padding:0;
+    border:0;
+}
+
 #render-target {
     height: 100%;
     overflow-x: hidden;

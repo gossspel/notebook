@@ -8,9 +8,16 @@ export default class NoteBookContent extends Component {
         return (
             <div className="note-book-content">
                 <NoteBookTopBar />
-                <NoteDetailTitle />
+                <NoteDetailTitle activeTitle={this.props.activeTitle} onTitleTextInput={this.props.onTitleTextInput}/>
                 <NoteDetailContent />
             </div>
         );
     }
 }
+
+NoteBookContent.propTypes = {
+    activeTitle: PropTypes.string.isRequired,
+    activeContent: PropTypes.string.isRequired,
+    onTitleTextInput: PropTypes.func.isRequired,
+    onContentTextInput: PropTypes.func.isRequired
+};

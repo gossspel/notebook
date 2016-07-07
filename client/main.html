@@ -1,5 +1,15 @@
 <head>
-    <title>Todo List</title>
+    <title>Sunnynote</title>
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script>
+        tinymce.init({
+            selector: '#note-detail-content-id',
+            inline: true,
+            plugins: "autolink",
+            fixed_toolbar_container: "#note-book-toolbar-id"
+        });
+    </script>
+
 </head>
 
 <body>

@@ -7,9 +7,10 @@ export default class NoteBook extends Component {
         super(props);
 
         this.state = {
+            activeNoteId: 0,
             activeTitle: '',
             activeContent: '',
-            preSavingContent: ''
+            initialTinyMCEContent: ''
         };
     }
 
@@ -21,15 +22,22 @@ export default class NoteBook extends Component {
 
     handleContentTextInput(contentText) {
         this.setState({
-            preSavingContent: contentText
+            activeContent: contentText
         });
     }
 
-    handleNoteChange(title, content) {
+    handleNoteChange(noteId, title, content) {
         this.setState({
+            activeNoteId: noteId,
             activeTitle: title,
-            activeContent: content
+            activeContent: content,
+            initialTinyMCEContent: content
         });
+    }
+    
+    handleNoteSave() {
+        // start saving the note
+        console.log(this.state);
     }
 
     render() {
@@ -38,9 +46,10 @@ export default class NoteBook extends Component {
                 <NoteBookSideBar notes={this.props.notes} />
                 <NoteBookContent
                     activeTitle={this.state.activeTitle}
-                    activeContent={this.state.activeContent}
+                    initialTinyMCEContent={this.state.initialTinyMCEContent}
                     onTitleTextInput={this.handleTitleTextInput.bind(this)}
                     onContentTextInput={this.handleContentTextInput.bind(this)}
+                    onNoteSave={this.handleNoteSave.bind(this)}
                 />
             </div>
         );

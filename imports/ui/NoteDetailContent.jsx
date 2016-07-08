@@ -6,12 +6,17 @@ export default class NoteDetailContent extends Component {
         this.props.onContentTextInput(e.target.getContent());
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.onNoteSave();
+    }
+
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit.bind(this)}>
                 <TinyMCE
                     className="note-detail-content"
-                    content={this.props.activeContent}
+                    content={this.props.initialTinyMCEContent}
                     config={{
                         inline: true,
                         plugins: "autolink",
@@ -26,6 +31,7 @@ export default class NoteDetailContent extends Component {
 }
 
 NoteDetailContent.propTypes = {
-    activeContent: PropTypes.string.isRequired,
-    onContentTextInput: PropTypes.func.isRequired
+    initialTinyMCEContent: PropTypes.string.isRequired,
+    onContentTextInput: PropTypes.func.isRequired,
+    onNoteSave: PropTypes.func.isRequired
 };

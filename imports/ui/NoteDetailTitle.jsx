@@ -9,16 +9,14 @@ export default class NoteDetailTitle extends Component {
     render() {
         return (
             <div className="note-detail-title">
-                <form>
-                    <input
-                        className="note-detail-title-input"
-                        type="text"
-                        placeholder="Title your note"
-                        value={this.props.activeTitle}
-                        ref="titleTextInput"
-                        onChange={this.handleChange.bind(this)}
-                    />
-                </form>
+                <input
+                    className="note-detail-title-input"
+                    type="text"
+                    placeholder="Title your note"
+                    value={this.props.activeTitle}
+                    ref="titleTextInput"
+                    onChange={this.handleChange.bind(this)}
+                />
             </div>
         );
     }

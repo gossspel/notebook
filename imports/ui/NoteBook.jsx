@@ -8,7 +8,8 @@ export default class NoteBook extends Component {
 
         this.state = {
             activeTitle: '',
-            activeContent: ''
+            activeContent: '',
+            preSavingContent: ''
         };
     }
 
@@ -20,7 +21,7 @@ export default class NoteBook extends Component {
 
     handleContentTextInput(contentText) {
         this.setState({
-            activeContent: contentText
+            preSavingContent: contentText
         });
     }
 

@@ -8,8 +8,14 @@ export default class NoteBookContent extends Component {
         return (
             <div className="note-book-content">
                 <NoteBookTopBar />
-                <NoteDetailTitle activeTitle={this.props.activeTitle} onTitleTextInput={this.props.onTitleTextInput}/>
-                <NoteDetailContent />
+                <NoteDetailTitle
+                    activeTitle={this.props.activeTitle} 
+                    onTitleTextInput={this.props.onTitleTextInput}
+                />
+                <NoteDetailContent
+                    activeContent={this.props.activeContent}
+                    onContentTextInput={this.props.onContentTextInput}
+                />
             </div>
         );
     }

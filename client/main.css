@@ -22,6 +22,7 @@ p {
 }
 
 .note-book-side-bar {
+    cursor: pointer;
     position: fixed;
     width: 350px;
     height:100vh;
@@ -43,7 +44,16 @@ p {
     overflow-x: hidden;
 }
 
-.note-table {
+.note-row-background:hover {
+    background-color: #21ce99;
+}
+
+.note-row-background:hover .note-row {
+    border:0;
+}
+
+.note-row-background:hover .note-row-content, .note-row-background:hover .note-row-title {
+    color: #ffffff;
 }
 
 .note-row {

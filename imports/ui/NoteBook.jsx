@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import NoteBookSideBar from './NoteBookSideBar';
 import NoteBookContent from './NoteBookContent';
+import { Meteor } from 'meteor/meteor';
 
 export default class NoteBook extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            activeNoteId: 0,
+            activeNoteId: '',
             activeTitle: '',
             activeContent: '',
             initialTinyMCEContent: ''
@@ -37,7 +38,14 @@ export default class NoteBook extends Component {
     
     handleNoteSave() {
         // start saving the note
-        console.log(this.state);
+        if (this.state.activeNoteId === '') {
+            // Create new note
+            var callbackArrowFunction = (error, result) => { this.state.activeNoteId = result; };
+            Meteor.call('notes.insert', this.state.activeTitle, this.state.activeContent, callbackArrowFunction);
+        } else {
+            // Update existing note
+            Meteor.call('notes.update', this.state.activeNoteId, this.state.activeTitle, this.state.activeContent);
+        }
     }
 
     render() {

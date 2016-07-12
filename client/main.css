@@ -73,6 +73,7 @@ p {
 .note-row-content {
     color: #878787;
     font-size: 14px;
+    overflow-wrap: break-word;
 }
 
 .note-book-top-bar {

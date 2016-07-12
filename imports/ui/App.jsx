@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import NoteBook from './NoteBook.jsx';
-import { Notes } from '../api/notes.js';
+import { Notes } from '../mongo/collections';
 
 // App component - represents the whole app
 class App extends Component {

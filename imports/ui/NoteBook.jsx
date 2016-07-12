@@ -51,7 +51,10 @@ export default class NoteBook extends Component {
     render() {
         return (
             <div className="note-book">
-                <NoteBookSideBar notes={this.props.notes} />
+                <NoteBookSideBar
+                    notes={this.props.notes}
+                    onNoteChange={this.handleNoteChange.bind(this)}
+                />
                 <NoteBookContent
                     activeTitle={this.state.activeTitle}
                     initialTinyMCEContent={this.state.initialTinyMCEContent}

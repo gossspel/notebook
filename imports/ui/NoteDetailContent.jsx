@@ -20,6 +20,7 @@ export default class NoteDetailContent extends Component {
                     config={{
                         inline: true,
                         plugins: "autolink",
+                        extended_valid_elements: 'a[href|target=_blank]',
                         fixed_toolbar_container: "#note-book-toolbar-id"
                     }}
                     onChange={this.handleEditorChange.bind(this)}

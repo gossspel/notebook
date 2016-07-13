@@ -16,6 +16,16 @@ p {
     font-family: "Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
+.input-container {
+    padding: 10px 10px 10px 10px;
+}
+
+.mode-changing-button-container {
+    display: inline-block;
+    float: right;
+    padding: 0 0 10px 0;
+}
+
 .note-book {
     width: 100%;
     min-width: 1170px;
@@ -107,7 +117,7 @@ p {
 }
 
 .note-detail-title {
-    padding: 20px 10px 20px 10px;
+    padding: 10px 10px 10px 10px;
 }
 
 .note-detail-title-input {

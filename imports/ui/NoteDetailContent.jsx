@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import TinyMCE from 'react-tinymce';
 
 export default class NoteDetailContent extends Component {
@@ -14,6 +15,12 @@ export default class NoteDetailContent extends Component {
     createMarkup() {
         var rawString = this.props.initialTinyMCEContent;
         return { __html: rawString };
+    }
+
+    componentDidUpdate(){
+        if (this.props.showPreview == false) {
+            ReactDOM.findDOMNode(this.refs.tinyMCEInput).focus();
+        }
     }
 
     render() {

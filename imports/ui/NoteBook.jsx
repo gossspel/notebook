@@ -11,7 +11,8 @@ export default class NoteBook extends Component {
             activeNoteId: '',
             activeTitle: '',
             activeContent: '',
-            initialTinyMCEContent: ''
+            initialTinyMCEContent: '',
+            showPreview: true
         };
     }
 
@@ -48,6 +49,12 @@ export default class NoteBook extends Component {
         }
     }
 
+    handleShowPreview(showOrNot) {
+        this.setState({
+            showPreview: showOrNot
+        });
+    }
+
     render() {
         return (
             <div className="note-book">
@@ -60,7 +67,9 @@ export default class NoteBook extends Component {
                     initialTinyMCEContent={this.state.initialTinyMCEContent}
                     onTitleTextInput={this.handleTitleTextInput.bind(this)}
                     onContentTextInput={this.handleContentTextInput.bind(this)}
+                    onShowPreview={this.handleShowPreview.bind(this)}
                     onNoteSave={this.handleNoteSave.bind(this)}
+                    showPreview={this.state.showPreview}
                 />
             </div>
         );

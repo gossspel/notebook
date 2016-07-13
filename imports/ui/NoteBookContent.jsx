@@ -9,13 +9,16 @@ export default class NoteBookContent extends Component {
             <div className="note-book-content">
                 <NoteBookTopBar />
                 <NoteDetailTitle
-                    activeTitle={this.props.activeTitle} 
+                    activeTitle={this.props.activeTitle}
+                    onShowPreview={this.props.onShowPreview}
                     onTitleTextInput={this.props.onTitleTextInput}
+                    showPreview={this.props.showPreview}
                 />
                 <NoteDetailContent
                     initialTinyMCEContent={this.props.initialTinyMCEContent}
                     onContentTextInput={this.props.onContentTextInput}
                     onNoteSave={this.props.onNoteSave}
+                    showPreview={this.props.showPreview}
                 />
             </div>
         );
@@ -23,9 +26,11 @@ export default class NoteBookContent extends Component {
 }
 
 NoteBookContent.propTypes = {
+    showPreview: PropTypes.bool.isRequired,
     activeTitle: PropTypes.string.isRequired,
     initialTinyMCEContent: PropTypes.string.isRequired,
     onTitleTextInput: PropTypes.func.isRequired,
     onContentTextInput: PropTypes.func.isRequired,
+    onShowPreview: PropTypes.func.isRequired,
     onNoteSave: PropTypes.func.isRequired
 };

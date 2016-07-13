@@ -33,12 +33,14 @@ export default class NoteBook extends Component {
             activeNoteId: noteId,
             activeTitle: title,
             activeContent: content,
-            initialTinyMCEContent: content
+            initialTinyMCEContent: content,
+            showPreview: true
         });
     }
     
     handleNoteSave() {
-        // start saving the note
+        // start saving the note, always show preview afterwards.
+        this.state.showPreview = true;
         if (this.state.activeNoteId === '') {
             // Create new note
             var callbackArrowFunction = (error, result) => { this.state.activeNoteId = result; };

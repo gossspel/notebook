@@ -44,9 +44,10 @@ export default class NoteBook extends Component {
     
     handleNoteSave() {
         // start saving the note, always show preview afterwards.
+        this.state.initialTinyMCEContent = this.state.activeContent;
         this.state.showPreview = true;
         this.state.showSave = false;
-        
+
         if (this.state.activeNoteId === '') {
             // Create new note
             var callbackArrowFunction = (error, result) => { this.state.activeNoteId = result; };

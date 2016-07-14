@@ -20,12 +20,6 @@ p {
     padding: 10px 10px 10px 10px;
 }
 
-.mode-changing-button-container {
-    display: inline-block;
-    float: right;
-    padding: 0 0 10px 0;
-}
-
 .note-book {
     width: 100%;
     min-width: 1170px;
@@ -117,7 +111,7 @@ p {
 }
 
 .note-detail-title {
-    padding: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
 }
 
 .note-detail-title-input {
@@ -134,9 +128,20 @@ p {
     height: 100%;
     color: #383838;
     font-size: 16px;
-    padding: 20px 10px 20px 10px;
+    padding: 20px 0 20px 0;
 }
 
 .note-detail-content.mce-edit-focus {
     outline: 0;
+}
+
+.show-preview-button-container {
+    display: inline-block;
+    float: right;
+    padding: 0 0 10px 0;
+}
+
+.show-preview-button {
+    width: 60px;
+    margin: 0 0 0 10px;
 }

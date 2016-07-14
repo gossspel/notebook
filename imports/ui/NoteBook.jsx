@@ -12,19 +12,22 @@ export default class NoteBook extends Component {
             activeTitle: '',
             activeContent: '',
             initialTinyMCEContent: '',
-            showPreview: true
+            showPreview: true,
+            showSave: false
         };
     }
 
     handleTitleTextInput(titleText) {
         this.setState({
-            activeTitle: titleText
+            activeTitle: titleText,
+            showSave: true
         });
     }
 
     handleContentTextInput(contentText) {
         this.setState({
-            activeContent: contentText
+            activeContent: contentText,
+            showSave: true
         });
     }
 
@@ -34,13 +37,16 @@ export default class NoteBook extends Component {
             activeTitle: title,
             activeContent: content,
             initialTinyMCEContent: content,
-            showPreview: true
+            showPreview: true,
+            showSave: false
         });
     }
     
     handleNoteSave() {
         // start saving the note, always show preview afterwards.
         this.state.showPreview = true;
+        this.state.showSave = false;
+        
         if (this.state.activeNoteId === '') {
             // Create new note
             var callbackArrowFunction = (error, result) => { this.state.activeNoteId = result; };
@@ -72,6 +78,7 @@ export default class NoteBook extends Component {
                     onShowPreview={this.handleShowPreview.bind(this)}
                     onNoteSave={this.handleNoteSave.bind(this)}
                     showPreview={this.state.showPreview}
+                    showSave={this.state.showSave}
                 />
             </div>
         );

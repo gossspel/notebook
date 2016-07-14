@@ -6,15 +6,33 @@ export default class NoteDetailTitle extends Component {
         this.props.onTitleTextInput(this.refs.titleTextInput.value);
     }
 
-    handleClick() {
+    handlePreviewOrEditClick() {
         this.props.onShowPreview(!this.props.showPreview);
+    }
+
+    handleSaveClick() {
+        this.props.onNoteSave();
     }
 
     render() {
         return (
             <div className="note-detail-title">
-                <div className="mode-changing-button-container">
-                    <button type="button" onClick={this.handleClick.bind(this)}>
+                <div className="show-preview-button-container">
+                    {this.props.showSave ?
+                        <button
+                            className="show-preview-button"
+                            type="button"
+                            onClick={this.handleSaveClick.bind(this)}
+                        >
+                            Save
+                        </button> : null
+                    }
+
+                    <button
+                        className="show-preview-button"
+                        type="button"
+                        onClick={this.handlePreviewOrEditClick.bind(this)}
+                    >
                         {this.props.showPreview ? 'Edit' : 'Preview'}
                     </button>
                 </div>
@@ -35,7 +53,9 @@ export default class NoteDetailTitle extends Component {
 
 NoteDetailTitle.propTypes = {
     activeTitle: PropTypes.string.isRequired,
+    onNoteSave: PropTypes.func.isRequired,
     onShowPreview: PropTypes.func.isRequired,
     onTitleTextInput: PropTypes.func.isRequired,
-    showPreview: PropTypes.bool.isRequired
+    showPreview: PropTypes.bool.isRequired,
+    showSave: PropTypes.bool.isRequired
 };

@@ -6,12 +6,7 @@ export default class NoteDetailContent extends Component {
     handleEditorChange(e) {
         this.props.onContentTextInput(e.target.getContent());
     }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.onNoteSave();
-    }
-
+    
     createMarkup() {
         var rawString = this.props.initialTinyMCEContent;
         return { __html: rawString };
@@ -19,14 +14,14 @@ export default class NoteDetailContent extends Component {
 
     componentDidUpdate(){
         if (this.props.showPreview == false) {
-            ReactDOM.findDOMNode(this.refs.tinyMCEInput).focus();
+            // ReactDOM.findDOMNode(this.refs.tinyMCEInput).focus();
         }
     }
 
     render() {
         console.log('render was fired');
         return (
-            <form onSubmit={this.handleSubmit.bind(this)}>
+            <form>
                 {
                     (this.props.showPreview == true) ?
                     <div
@@ -47,7 +42,6 @@ export default class NoteDetailContent extends Component {
                         onChange={this.handleEditorChange.bind(this)}
                     />
                 }
-                <input type="submit" value="Submit" />
             </form>
         );
     }
@@ -56,6 +50,5 @@ export default class NoteDetailContent extends Component {
 NoteDetailContent.propTypes = {
     showPreview: PropTypes.bool.isRequired,
     initialTinyMCEContent: PropTypes.string.isRequired,
-    onContentTextInput: PropTypes.func.isRequired,
-    onNoteSave: PropTypes.func.isRequired
+    onContentTextInput: PropTypes.func.isRequired
 };

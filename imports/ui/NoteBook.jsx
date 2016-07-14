@@ -11,7 +11,7 @@ export default class NoteBook extends Component {
             activeNoteId: '',
             activeTitle: '',
             activeContent: '',
-            initialTinyMCEContent: '',
+            storedContent: '',
             showPreview: true,
             showSave: false
         };
@@ -36,7 +36,7 @@ export default class NoteBook extends Component {
             activeNoteId: noteId,
             activeTitle: title,
             activeContent: content,
-            initialTinyMCEContent: content,
+            storedContent: content,
             showPreview: true,
             showSave: false
         });
@@ -44,7 +44,7 @@ export default class NoteBook extends Component {
     
     handleNoteSave() {
         // start saving the note, always show preview afterwards.
-        this.state.initialTinyMCEContent = this.state.activeContent;
+        this.state.storedContent = this.state.activeContent;
         this.state.showPreview = true;
         this.state.showSave = false;
 
@@ -73,7 +73,7 @@ export default class NoteBook extends Component {
                 />
                 <NoteBookContent
                     activeTitle={this.state.activeTitle}
-                    initialTinyMCEContent={this.state.initialTinyMCEContent}
+                    storedContent={this.state.storedContent}
                     onTitleTextInput={this.handleTitleTextInput.bind(this)}
                     onContentTextInput={this.handleContentTextInput.bind(this)}
                     onShowPreview={this.handleShowPreview.bind(this)}

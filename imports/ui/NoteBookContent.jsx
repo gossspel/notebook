@@ -17,7 +17,7 @@ export default class NoteBookContent extends Component {
                     showSave={this.props.showSave}
                 />
                 <NoteDetailContent
-                    initialTinyMCEContent={this.props.initialTinyMCEContent}
+                    storedContent={this.props.storedContent}
                     onContentTextInput={this.props.onContentTextInput}
                     onNoteSave={this.props.onNoteSave}
                     showPreview={this.props.showPreview}
@@ -29,7 +29,7 @@ export default class NoteBookContent extends Component {
 
 NoteBookContent.propTypes = {
     activeTitle: PropTypes.string.isRequired,
-    initialTinyMCEContent: PropTypes.string.isRequired,
+    storedContent: PropTypes.string.isRequired,
     onTitleTextInput: PropTypes.func.isRequired,
     onContentTextInput: PropTypes.func.isRequired,
     onShowPreview: PropTypes.func.isRequired,

@@ -8,7 +8,7 @@ export default class NoteDetailContent extends Component {
     }
     
     createMarkup() {
-        var rawString = this.props.initialTinyMCEContent;
+        var rawString = this.props.storedContent;
         return { __html: rawString };
     }
 
@@ -32,7 +32,7 @@ export default class NoteDetailContent extends Component {
                     <TinyMCE
                         className="note-detail-content"
                         ref="tinyMCEInput"
-                        content={this.props.initialTinyMCEContent}
+                        content={this.props.storedContent}
                         config={{
                             inline: true,
                             plugins: "autolink",
@@ -49,6 +49,6 @@ export default class NoteDetailContent extends Component {
 
 NoteDetailContent.propTypes = {
     showPreview: PropTypes.bool.isRequired,
-    initialTinyMCEContent: PropTypes.string.isRequired,
+    storedContent: PropTypes.string.isRequired,
     onContentTextInput: PropTypes.func.isRequired
 };

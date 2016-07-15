@@ -20,6 +20,29 @@ p {
     padding: 10px 10px 10px 10px;
 }
 
+.new-note-button {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    border: 0;
+    width: 56px;
+    height: 56px;
+    background: none;
+    cursor: pointer;
+}
+
+.new-note-button:focus {
+    outline: none;
+}
+
+.new-note-button:active {
+    padding: 8px 13px 6px 13px;
+}
+
+.new-note-button-image {
+    width: 56px;
+    height: 56px;
+}
+
 .note-book {
     width: 100%;
     min-width: 1170px;
@@ -93,7 +116,6 @@ p {
     width: 56px;
     height: 56px;
     background-size: 56px 56px;
-    background-image: url("/images/sunnynote.png");
     margin: 10px 0 0 0;
     float: left;
 }

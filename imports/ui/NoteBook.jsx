@@ -7,14 +7,32 @@ export default class NoteBook extends Component {
     constructor(props) {
         super(props);
 
+        // By default show the null state to tell user to add new note by clicking on the notebook icon
         this.state = {
+            // Active note data
             activeNoteId: '',
             activeTitle: '',
             activeContent: '',
             storedContent: '',
+
+            // showPreview true = preview mode on, showPreview false = edit mode on
             showPreview: true,
+
             showSave: false
         };
+    }
+
+    isActiveNoteDataEmpty() {
+        var isActiveNoteIdEmpty = this.state.activeNoteId == '';
+        var isActiveTitleEmpty = this.state.activeTitle == '';
+        var isActiveContentEmpty = this.state.activeContent == '';
+        var isStoredContentEmpty = this.state.storedContent == '';
+        return isActiveNoteIdEmpty && isActiveTitleEmpty && isActiveContentEmpty && isStoredContentEmpty;
+    }
+
+    shouldShowNullState() {
+        // if activeNoteData is not empty or if showPreview is false, we don't show null state.
+        return (this.isActiveNoteDataEmpty() && this.state.showPreview) ? true : false;
     }
 
     handleTitleTextInput(titleText) {
@@ -88,6 +106,7 @@ export default class NoteBook extends Component {
                     onContentTextInput={this.handleContentTextInput.bind(this)}
                     onShowPreview={this.handleShowPreview.bind(this)}
                     onNoteSave={this.handleNoteSave.bind(this)}
+                    showNullState={this.shouldShowNullState()}
                     showPreview={this.state.showPreview}
                     showSave={this.state.showSave}
                 />

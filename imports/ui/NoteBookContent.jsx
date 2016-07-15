@@ -2,25 +2,23 @@ import React, { Component, PropTypes } from 'react';
 import NoteDetailTitle from './NoteDetailTitle';
 import NoteDetailContent from './NoteDetailContent';
 import NoteBookTopBar from './NoteBookTopBar';
+import NoteBookMainView from './NoteBookMainView';
 
 export default class NoteBookContent extends Component {
     render() {
         return (
             <div className="note-book-content">
                 <NoteBookTopBar />
-                <NoteDetailTitle
+                <NoteBookMainView
                     activeTitle={this.props.activeTitle}
+                    onContentTextInput={this.props.onContentTextInput}
                     onNoteSave={this.props.onNoteSave}
                     onShowPreview={this.props.onShowPreview}
                     onTitleTextInput={this.props.onTitleTextInput}
+                    showNullState={this.props.showNullState}
                     showPreview={this.props.showPreview}
                     showSave={this.props.showSave}
-                />
-                <NoteDetailContent
                     storedContent={this.props.storedContent}
-                    onContentTextInput={this.props.onContentTextInput}
-                    onNoteSave={this.props.onNoteSave}
-                    showPreview={this.props.showPreview}
                 />
             </div>
         );
@@ -29,11 +27,12 @@ export default class NoteBookContent extends Component {
 
 NoteBookContent.propTypes = {
     activeTitle: PropTypes.string.isRequired,
-    storedContent: PropTypes.string.isRequired,
-    onTitleTextInput: PropTypes.func.isRequired,
     onContentTextInput: PropTypes.func.isRequired,
-    onShowPreview: PropTypes.func.isRequired,
     onNoteSave: PropTypes.func.isRequired,
+    onShowPreview: PropTypes.func.isRequired,
+    onTitleTextInput: PropTypes.func.isRequired,
+    showNullState: PropTypes.bool.isRequired,
     showPreview: PropTypes.bool.isRequired,
-    showSave: PropTypes.bool.isRequired
+    showSave: PropTypes.bool.isRequired,
+    storedContent: PropTypes.string.isRequired
 };

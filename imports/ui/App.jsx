@@ -18,6 +18,6 @@ App.propTypes = {
 
 export default createContainer(() => {
     return {
-        notes: Notes.find({}).fetch()
+        notes: Notes.find({}, { sort: { title: 1 } }).fetch()
     };
 }, App);

@@ -41,14 +41,22 @@ export default class NoteBook extends Component {
             showSave: false
         });
     }
-    
+
+    getContentWithLinks() {
+        var matchingPattern = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+        var replaceString = '<a href="$1" target="_blank">$1</a>';
+        return this.state.activeContent.replace(matchingPattern, replaceString);
+    }
+
     handleNoteSave() {
         // start saving the note, always show preview afterwards.
-        this.state.storedContent = this.state.activeContent;
         this.state.showPreview = true;
         this.state.showSave = false;
 
         if (this.state.activeNoteId === '') {
+            // For quick porting note from Evernote to Sunnynote
+            this.state.activeContent = this.getContentWithLinks();
+
             // Create new note
             var callbackArrowFunction = (error, result) => { this.state.activeNoteId = result; };
             Meteor.call('notes.insert', this.state.activeTitle, this.state.activeContent, callbackArrowFunction);
@@ -56,6 +64,8 @@ export default class NoteBook extends Component {
             // Update existing note
             Meteor.call('notes.update', this.state.activeNoteId, this.state.activeTitle, this.state.activeContent);
         }
+
+        this.state.storedContent = this.state.activeContent;
     }
 
     handleShowPreview(showOrNot) {

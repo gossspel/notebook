@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import NoteDetailTitle from './NoteDetailTitle';
-import NoteDetailContent from './NoteDetailContent';
 import NoteBookTopBar from './NoteBookTopBar';
 import NoteBookMainView from './NoteBookMainView';
 

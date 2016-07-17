@@ -101,14 +101,15 @@ export default class NoteBook extends Component {
                 />
                 <NoteBookContent
                     activeTitle={this.state.activeTitle}
-                    storedContent={this.state.storedContent}
-                    onTitleTextInput={this.handleTitleTextInput.bind(this)}
                     onContentTextInput={this.handleContentTextInput.bind(this)}
-                    onShowPreview={this.handleShowPreview.bind(this)}
+                    onNoteInit={this.handleNoteInit.bind(this)}
                     onNoteSave={this.handleNoteSave.bind(this)}
+                    onShowPreview={this.handleShowPreview.bind(this)}
+                    onTitleTextInput={this.handleTitleTextInput.bind(this)}
                     showNullState={this.shouldShowNullState()}
                     showPreview={this.state.showPreview}
                     showSave={this.state.showSave}
+                    storedContent={this.state.storedContent}
                 />
             </div>
         );

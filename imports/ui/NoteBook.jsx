@@ -60,6 +60,18 @@ export default class NoteBook extends Component {
         });
     }
 
+    handleNoteInit() {
+        this.setState({
+            // These are the states of a newly initialized note from clicking the notebook icon button.
+            activeNoteId: '',
+            activeTitle: '',
+            activeContent: '',
+            storedContent: '',
+            showPreview: false,
+            showSave: false
+        });
+    }
+
     getContentWithLinks() {
         var matchingPattern = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
         var replaceString = '<a href="$1" target="_blank">$1</a>';

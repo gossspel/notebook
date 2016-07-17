@@ -1,11 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class NoteBookTopBar extends Component {
+    handleInitClick() {
+        this.props.onNoteInit();
+    }
+
     render() {
         return (
             <div className="note-book-top-bar">
                 <div className="note-book-logo">
-                    <button className="new-note-button" title="Click me to create new note!" type="button">
+                    <button
+                        className="new-note-button"
+                        onClick={this.handleInitClick.bind(this)}
+                        title="Click me to create new note!"
+                        type="button"
+                    >
                         <img
                             className="new-note-button-image"
                             src="/images/sunnynote.png"
@@ -18,3 +27,7 @@ export default class NoteBookTopBar extends Component {
         );
     }
 }
+
+NoteBookTopBar.propTypes = {
+    onNoteInit: PropTypes.func.isRequired
+};

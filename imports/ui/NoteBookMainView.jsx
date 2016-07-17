@@ -8,7 +8,10 @@ export default class NoteBookMainView extends Component {
             <div className="note-book-main-view">
                 { this.props.showNullState ?
                     <div>
-                        This is nuts! You don't have any notes, click on the Notebook icon above to make a new one!
+                        <h2 className="null-state-title">
+                            This is nuts! You don't have any open note, click on the Notebook above to make a new one.
+                        </h2>
+                        <div className="null-state-graphics"></div>
                     </div> :
                     <div>
                         <NoteDetailTitle

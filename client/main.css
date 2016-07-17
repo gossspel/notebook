@@ -158,6 +158,17 @@ p {
     outline: 0;
 }
 
+.null-state-graphics {
+    background-image: url("/images/nuts.png");
+    margin: auto;
+    height: 450px;
+    width: 450px;
+}
+
+.null-state-title {
+    color: #9D9FA2;
+}
+
 .show-preview-button-container {
     display: inline-block;
     float: right;

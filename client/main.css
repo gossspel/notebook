@@ -159,6 +159,18 @@ p {
     outline: 0;
 }
 
+.note-row-edit-button-container {
+    display: inline-block;
+    float: right;
+    padding: 5px 20px 0 0;
+}
+
+.note-row-edit-button {
+    width: 60px;
+    margin: 0 0 0 10px;
+    cursor: pointer;
+}
+
 .null-state-graphics {
     background-image: url("/images/nuts.png");
     margin: auto;
@@ -179,4 +191,5 @@ p {
 .show-preview-button {
     width: 60px;
     margin: 0 0 0 10px;
+    cursor: pointer;
 }

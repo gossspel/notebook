@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom';
 import TinyMCE from 'react-tinymce';
 
 export default class NoteDetailContent extends Component {
-    handleEditorChange(e) {
-        this.props.onContentTextInput(e.target.getContent());
+    handleEditorChange(event) {
+        // We should only be handling editor change when the user is editing.
+        // The onChange event also get triggered when the TinyMCE component is being removed from re-rendering.
+        if (this.props.showPreview == false) {
+            this.props.onContentTextInput(event.target.getContent());
+        }
     }
     
     createMarkup() {
@@ -19,7 +23,6 @@ export default class NoteDetailContent extends Component {
     }
 
     render() {
-        console.log('render was fired');
         return (
             <form>
                 {

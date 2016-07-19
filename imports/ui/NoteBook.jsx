@@ -49,13 +49,13 @@ export default class NoteBook extends Component {
         });
     }
 
-    handleNoteChange(noteId, title, content) {
+    handleNoteChange(noteId, title, content, showPreview) {
         this.setState({
             activeNoteId: noteId,
             activeTitle: title,
             activeContent: content,
             storedContent: content,
-            showPreview: true,
+            showPreview: showPreview,
             showSave: false
         });
     }

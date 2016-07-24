@@ -5,12 +5,16 @@ export default class NoteBookSideBar extends Component {
     render() {
         return (
             <div className="note-book-side-bar">
-                <NoteTable notes={this.props.notes} />
+                <NoteTable
+                    notes={this.props.notes}
+                    onNoteChange={this.props.onNoteChange}
+                />
             </div>
         );
     }
 }
 
 NoteBookSideBar.propTypes = {
-    notes: PropTypes.array.isRequired
+    notes: PropTypes.array.isRequired,
+    onNoteChange: PropTypes.func.isRequired
 };

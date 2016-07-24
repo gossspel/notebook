@@ -7,8 +7,8 @@ export default class NoteTable extends Component {
 
         this.props.notes.forEach(
             function(note) {
-                rows.push(<NoteRow note={note} key={note._id} />);
-            }
+                rows.push(<NoteRow note={note} key={note._id} onNoteChange={this.props.onNoteChange} />);
+            }.bind(this)
         );
 
         return (
@@ -20,5 +20,6 @@ export default class NoteTable extends Component {
 }
 
 NoteTable.propTypes = {
-    notes: PropTypes.array.isRequired
+    notes: PropTypes.array.isRequired,
+    onNoteChange: PropTypes.func.isRequired
 };

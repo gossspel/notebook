@@ -16,12 +16,40 @@ p {
     font-family: "Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
+.input-container {
+    padding: 10px 10px 10px 10px;
+}
+
+.new-note-button {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    border: 0;
+    width: 56px;
+    height: 56px;
+    background: none;
+    cursor: pointer;
+}
+
+.new-note-button:focus {
+    outline: none;
+}
+
+.new-note-button:active {
+    padding: 8px 13px 6px 13px;
+}
+
+.new-note-button-image {
+    width: 56px;
+    height: 56px;
+}
+
 .note-book {
     width: 100%;
     min-width: 1170px;
 }
 
 .note-book-side-bar {
+    cursor: pointer;
     position: fixed;
     width: 350px;
     height:100vh;
@@ -29,6 +57,7 @@ p {
     right: 0;
     top: 0;
     overflow-y: scroll;
+    border:1px solid #ececec;
 }
 
 .note-book-content {
@@ -39,11 +68,20 @@ p {
     left: 0;
     top: 0;
     height:100vh;
+    overflow-wrap: break-word;
     overflow-x: hidden;
 }
 
-.note-table {
-    border:1px solid #ececec;
+.note-row-background:hover {
+    background-color: #21ce99;
+}
+
+.note-row-background:hover .note-row {
+    border:0;
+}
+
+.note-row-background:hover .note-row-content, .note-row-background:hover .note-row-title {
+    color: #ffffff;
 }
 
 .note-row {
@@ -63,6 +101,8 @@ p {
 .note-row-content {
     color: #878787;
     font-size: 14px;
+    height: 48px;
+    overflow-wrap: break-word;
 }
 
 .note-book-top-bar {
@@ -77,7 +117,6 @@ p {
     width: 56px;
     height: 56px;
     background-size: 56px 56px;
-    background-image: url("/images/sunnynote.png");
     margin: 10px 0 0 0;
     float: left;
 }
@@ -96,7 +135,7 @@ p {
 }
 
 .note-detail-title {
-    padding: 20px;
+    padding: 10px 0 10px 0;
 }
 
 .note-detail-title-input {
@@ -113,5 +152,44 @@ p {
     height: 100%;
     color: #383838;
     font-size: 16px;
-    padding: 20px;
+    padding: 20px 0 20px 0;
+}
+
+.note-detail-content.mce-edit-focus {
+    outline: 0;
+}
+
+.note-row-edit-button-container {
+    display: inline-block;
+    float: right;
+    padding: 5px 20px 0 0;
+}
+
+.note-row-edit-button {
+    width: 60px;
+    margin: 0 0 0 10px;
+    cursor: pointer;
+}
+
+.null-state-graphics {
+    background-image: url("/images/nuts.png");
+    margin: auto;
+    height: 450px;
+    width: 450px;
+}
+
+.null-state-title {
+    color: #9D9FA2;
+}
+
+.show-preview-button-container {
+    display: inline-block;
+    float: right;
+    padding: 0 0 10px 0;
+}
+
+.show-preview-button {
+    width: 60px;
+    margin: 0 0 0 10px;
+    cursor: pointer;
 }

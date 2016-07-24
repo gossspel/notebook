@@ -1,19 +1,27 @@
 import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
-
-export const Notes = new Mongo.Collection('notes');
+import { Notes } from '../mongo/collections';
 
 Meteor.methods({
     'notes.insert'(title, content) {
         check(title, String);
         check(content, String);
-
-        Notes.insert({
+        
+        var insertedDate = new Date();
+        
+        return Notes.insert({
             title: title,
             content: content,
-            createAt: new Date()
+            createdAt: insertedDate,
+            updatedAt: insertedDate
         });
+    },
+
+    'notes.update'(noteId, newTitle, newContent) {
+        check(newTitle, String);
+        check(newContent, String);
+        var updatedDate = new Date();
+        Notes.update(noteId, { $set: { title: newTitle, content: newContent, updatedAt: updatedDate } });
     },
 
     'notes.remove'(noteId) {
@@ -22,12 +30,12 @@ Meteor.methods({
     },
 
     'notes.updateTitle'(noteId, newTitle) {
-        check(newTitle, string);
+        check(newTitle, String);
         Notes.update(noteId, { $set: { title: newTitle } });
     },
 
     'notes.updateContent'(noteId, newContent) {
-        check(newContent, string);
+        check(newContent, String);
         Notes.update(noteId, { $set: { content: newContent } });
     }
 });
